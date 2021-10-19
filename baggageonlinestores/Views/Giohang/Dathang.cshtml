@@ -1,0 +1,56 @@
+﻿@using baggageonlinestores.Models;
+@model List<GioHang>
+@{
+    ViewBag.Title = "Dathang";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align:center;">Thông tin đật hàng</h2>
+@{
+    khachhang kh = (khachhang)Session["Taikhoan"];
+}
+<table align="center">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        <tr style="height:50px";>
+            <td>Họ tên khách hàng</td>
+            <td style="font-weight:bold">@kh.HoTen</td>
+        </tr>
+        
+        @Html.ValidationSummary(true)
+        <tr style="height:50px";>
+            <td>Địa chỉ</td>
+            <td style="font-weight:bold">@kh.DiachiKH</td>
+        </tr>
+        
+        @Html.ValidationSummary(true)
+        <tr style="height:50px";>
+            <td>Điện thoại</td>
+            <td style="font-weight:bold">@kh.DienthoaiKH</td>
+        </tr>
+        
+        @Html.ValidationSummary(true)
+        <tr style="height:50px";>
+            <td>Ngày đặt:</td>
+            <td style="font-weight:bold">@DateTime.Now.ToShortDateString()</td>
+        </tr>
+        
+        @Html.ValidationSummary(true)
+        <tr style="height:50px";>
+            <td>Ngày giao</td>
+            <td style="font-weight:bold">
+                <input type="date" name="Ngaygiao" />
+            </td>
+        </tr>
+        
+        @Html.ValidationSummary(true)
+        <tr style="height:50px";>
+            <td></td>
+            <td style="font-weight:bold">
+                <input type="submit" value="Đồng ý đặt hàng" />
+            </td>
+        </tr>
+    }
+</table>
+

@@ -1,0 +1,92 @@
+﻿@*@model IEnumerable<baggageonlinestores.Model.sanpham>*@
+@using baggageonlinestores.Models
+@using PagedList.Mvc
+@model PagedList.PagedList<sanpham>
+@{
+    ViewBag.Title = "shop";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/css/bootstrap.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<!--/banner-bottom -->
+<section class="banner-bottom py-5">
+    <div class="container py-5">
+        <h3 class="title-wthree mb-lg-5 mb-4 text-center">Shop Now</h3>
+        <!--/row-->
+        <div class="row shop-wthree-info text-center">
+            @foreach(var sp in Model)
+            {
+               <div class="col-lg-3 shop-info-grid text-center mt-4">
+                <div class="product-shoe-info shoe">
+                    <div class="men-thumb-item">
+                        <a href="@Url.Action("single", "Home", new { id = sp.Masanpham })"><img style="width: 200px; height: 155px; " src="~/content/images/@sp.Anhbia" class="img-fluid" alt=""> </a>
+
+                    </div>
+                    <div class="item-info-product">
+                        <h4>
+                            @Html.ActionLink(@sp.Tensanpham, "single", "Home", new { id = sp.Masanpham }, null)
+                            
+                        </h4>
+
+                        <div class="product_price">
+                            <div class="grid-price">
+                                <span class="money"><span class="line">$799</span> $ @sp.Giaban</span>
+                            </div>
+                        </div>
+                        <ul class="stars">
+                            <li><a href="#"><span class="fa fa-star" aria-hidden="true"></span></a></li>
+                            <li><a href="#"><span class="fa fa-star" aria-hidden="true"></span></a></li>
+                            <li><a href="#"><span class="fa fa-star-half-o" aria-hidden="true"></span></a></li>
+                            <li><a href="#"><span class="fa fa-star-half-o" aria-hidden="true"></span></a></li>
+                            <li><a href="#"><span class="fa fa-star-o" aria-hidden="true"></span></a></li>
+                        </ul>
+                        <a href="@Url.Action("single", "Home", new { id = sp.Masanpham })">
+                            
+                        </a>
+                        <button type="submit" class="btn submit">Chi tết sản phẩm </button>
+                    </div>
+                </div>
+            </div> 
+            }
+        </div>
+        <!--//row-->
+        <!--/row1-->
+        
+
+        <!--//row1-->
+        <!--/row-->
+        
+        <nav aria-label="Page navigation example mt-5">
+            <ul class="pagination">
+                
+             @*@Html.PagedListPager(Model, page => Url.Action("shop", new { page = page }))*@
+               
+
+                @*<li class="page-item">
+                <a class="page-link" href="#">Previous</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#">1</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#">2</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#">3</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+            </li>*@
+            </ul>
+        </nav>
+        <div class="container menutrang">
+            @Html.PagedListPager(Model, page => Url.Action("shop", new { page = page }))
+        </div> 
+    </div>
+</section>
+<style>
+   .menutrang li{
+       display:inline
+   }
+</style>
+<!-- /banner-bottom -->

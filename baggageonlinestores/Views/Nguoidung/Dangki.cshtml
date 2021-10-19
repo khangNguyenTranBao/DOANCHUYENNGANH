@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "Dangki";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<table align="center">
+    <h2 style="text-align: center; color: #515152; margin-top: 50px; "> Đăng kí thành viên</h2>
+    <div class="text-center icon">
+        <span class="fa fa-user-circle-o"></span>
+    </div>
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        <tr style="height:50px">
+            <td> Họ tên khách hàng</td>
+            <td>
+                @Html.TextBox("HotenKH")
+                @ViewData["Loi1"]
+            </td>
+        </tr>
+        <tr style="height:50px">
+            <td>Tên đăng nhập</td>
+            <td>
+                @Html.TextBox("TenDN")
+                @ViewData["Loi2"]
+            </td>
+        </tr>
+        <tr style="height:50px">
+            <td>Mật khẩu</td>
+            <td>
+                @Html.Password("Matkhau")
+                @ViewData["Loi3"]
+            </td>
+        </tr>
+        <tr style="height:50px">
+            <td> Nhập lại mật khẩu</td>
+            <td>
+                @Html.Password("Nhập lại mật khẩu")
+                @ViewData["Loi4"]
+            </td>
+        </tr>
+        <tr style="height:50px">
+            <td>Điện thoại</td>
+            <td>
+                @Html.TextBox("Dienthoai")
+                @ViewData["Loi6"]
+            </td>
+        </tr>
+        <tr style="height:50px">
+            <td>Ngày sinh</td>
+            <td>
+                <input type="date" name="Ngaysinh"/>
+            </td>
+        </tr>
+        <tr style="height:50px; ">
+            <td></td>
+            <td class="content-input-field">
+                <input style="background-color: red;color: white;font-size: 17px;" class="btn" type="submit" value="Đăng kí" />
+            </td>
+        </tr>
+    }
+</table>    

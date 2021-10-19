@@ -1,0 +1,68 @@
+﻿@{
+    ViewBag.Title = "Dangnhap";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h4 style="color:red;text-align:center;">@ViewBag.Thongbao</h4>
+<table align="center">
+    <h3 style="text-align: center; color: #515152; margin-top: 50px; ">Đăng nhập</h3>
+    <div style="margin-top:10px" class="text-center icon">
+        <span class="fa fa-unlock-alt"></span>
+    </div>
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        <tr style="height:50px;">
+            <td> Tên đăng nhập</td>
+            <td>
+                @Html.TextBox("TenDN")
+                @ViewData["Loi1"]
+            </td>
+        </tr>
+        <tr style="height:50px;">
+            <td>Mật khẩu</td>
+            <td>
+                @Html.Password("Matkhau")
+                @ViewData["Loi2"]
+            </td>
+        </tr>
+        <tr style="height:50px; ">
+            <td></td>
+            <td class="content-input-field">
+                <input style="background-color: red;color: white;font-size: 17px;" class="btn" type="submit" value="Đăng nhập" />
+            </td>
+        </tr>
+    }
+</table>
+<section style="margin-top: -100px; " class="banner-bottom py-5">
+    <div class="container">
+        <div class="content-grid">
+            <div class="content-bottom">
+                <form action="#" method="post">
+                    <ul class="list-login">
+                        <li class="switch-slide">
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                                keep Logged in
+                            </label>
+                        </li>
+                        <li>
+                            <a href="#" class="text-right">Forgot password?</a>
+                        </li>
+                        <li class="clearfix"></li>
+                    </ul>
+                    <ul class="list-login-bottom">
+                        <li class="">
+                            <a href="register.html" class="">Don't have an Account?</a>
+                        </li>
+                        <li class="">
+                            <a href="#" class="text-right">Need Help?</a>
+                        </li>
+                        <li class="clearfix"></li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
